@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const mysql = require("mysql");
 const route = require("express").Router();
+const csurf = require("csurf");
+const csrfProtection = csurf({cookie:true});
 
 const pool = mysql.createPool({
     connectionLimit:10,
@@ -45,28 +47,28 @@ const authMiddleware = (req, res, next) => {
     }
 }
 
-route.get("/", accessMiddleware, (req, res) => {
-    res.render("index", {data:"Login", error:{active:false, message:""} , user:undefined});
+route.get("/", accessMiddleware, csrfProtection, (req, res) => {
+    res.render("index", {data:"Login", error:{active:false, message:""} , user:undefined, csrfToken:req.csrfToken()});
     res.end();
 })
 
-route.get("/register", accessMiddleware, (req, res) => {
-    res.render("index", {data:"Register", error:{active:false, message:"",}, user:undefined });
+route.get("/register",accessMiddleware,csrfProtection, (req, res) => {
+    res.render("index", {data:"Register", error:{active:false, message:"",}, user:undefined, csrfToken:req.csrfToken() });
     res.end();
 })
 
-route.get("/dashboard", authMiddleware, (req, res) => {
+route.get("/dashboard", authMiddleware, csrfProtection, (req, res) => {
     todos = req.todo.filter(t => t.isComplete == 0);
-    res.render("profile", {todos:todos, user:req.user.username});
+    res.render("profile", {todos:todos, user:req.user.username, csrfToken:req.csrfToken()});
     res.end();
 })
 
-route.get("/myList", authMiddleware, (req, res) => {
-    res.render("profile", {todos:req.todo, user:req.user.username});
+route.get("/myList", authMiddleware, csrfProtection, (req, res) => {
+    res.render("profile", {todos:req.todo, user:req.user.username, csrfToken:req.csrfToken()});
     res.end();
 })
 
-route.post("/", accessMiddleware, (req, res) => {
+route.post("/", accessMiddleware, csrfProtection, (req, res) => {
     const { username, password } = req.body;
     pool.query(`SELECT * FROM user WHERE username="${username}" LIMIT 1`, async (err, userObj, fields) => {
         if(err) console.log(err);
@@ -76,12 +78,12 @@ route.post("/", accessMiddleware, (req, res) => {
                 const tok = jwt.sign({username:userObj[0].username, userId:userObj[0].id}, process.env.accessKey, {expiresIn:"10h"});
                 res.cookie("accToken", tok);
                 res.redirect("/dashboard");
-            } else res.render("index", {data:"Login", error : {active:true,message:"Invalid Username/Password"}, user:undefined});
-        } else res.render("index", {data:"Login", error : {active:true,message:"Invalid Username/Password"}, user:undefined});
+            } else res.render("index", {data:"Login", error : {active:true,message:"Invalid Username/Password"}, user:undefined, csrfToken:req.csrfToken()});
+        } else res.render("index", {data:"Login", error : {active:true,message:"Invalid Username/Password"}, user:undefined, csrfToken:req.csrfToken()});
     })
 })
 
-route.post("/register", accessMiddleware, (req, res) => {
+route.post("/register", accessMiddleware, csrfProtection, (req, res) => {
     const { username, password } = req.body;
 
     pool.query(`SELECT * FROM user WHERE username='${username}'`, async (err, userObj, fields) => {
@@ -97,7 +99,7 @@ route.post("/register", accessMiddleware, (req, res) => {
     })
 })
 
-route.post("/todo/:id", authMiddleware, (req, res) => {
+route.post("/todo/:id",csrfProtection, authMiddleware, (req, res) => {
     const id = req.params.id;
     const isComp = req.query.iscomp === "0" ? 1 : 0;
     pool.query(`UPDATE todo SET isComplete=${isComp} WHERE todo.id=${id}`, (err, result, fields) => {
@@ -106,7 +108,7 @@ route.post("/todo/:id", authMiddleware, (req, res) => {
     })
 })
 
-route.post("/addTodo", authMiddleware, (req, res) => {
+route.post("/addTodo", csrfProtection, authMiddleware,(req, res) => {
     const title = req.body.title;
     const descr = req.body.descr;
     const isComp = req.body.isComp;
