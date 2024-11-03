@@ -8,10 +8,10 @@ const app = express();
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-app.set("views", "../client");
+app.set("views", "./templates");
 app.set("view engine", "ejs");
-app.use("/styles", express.static(path.join(__dirname, "../client", "styles")))
-app.use("/js", express.static(path.join(__dirname, "../client", "js")))
+app.use("/styles", express.static(path.join(__dirname, "templates", "styles")))
+app.use("/js", express.static(path.join(__dirname, "templates", "js")))
 
 
 app.use("/", require("./routes/api"));
