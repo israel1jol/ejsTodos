@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Teko:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Russo+One&family=Teko:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    
 </head>
 <body>
     <div class="container">
@@ -16,7 +17,7 @@
             <div class="page-title">
                 <h1><a href="/">TODOS</a></h1>
                 <% if(user){ %>
-                    <%= user %>
+                    <div class="user-panel"><%= user %></div>
                 <%}%>
             </div>
             <div class="nav-links"><%- include("navPartials") %></div>

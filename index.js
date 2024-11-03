@@ -16,4 +16,4 @@ app.use("/js", express.static(path.join(__dirname, "static", "js")))
 
 app.use("/", require("./routes/api"));
 
-app.listen(process.env.port || 800);
+app.listen(800);

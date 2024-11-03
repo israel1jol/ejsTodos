@@ -1,10 +1,10 @@
 <ul>
 <%if(data === "Login" || data === "Register"){%>
-        <li><a href="/" class="btn1">Login</a></li>
-        <li><a href="/register" class="btn1">Register</a></li>
+        <li><a href="/" class="btn1"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+        <li><a href="/register" class="btn1"><i class="fa-solid fa-user-plus"></i></a></li>
 <%} else {%>
-    <li><button class="btn1 red-btn" id="adder">Add</a></li>
-    <li><a href="/myList" class="btn1">View All</a></li>
+    <li><button class="btn1 red-btn" id="adder"><i class="fa-solid fa-plus"></i></a></li>
+    <li><a href="/myList" class="btn1"><i class="fa-solid fa-eye-low-vision"></i></a></li>
     <li>
         <form action="/logout" method="post">
             <input type="submit" value="logout" class="btn1">
