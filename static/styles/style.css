@@ -6,14 +6,19 @@
 }
 
 .container{
+    position: relative;
     min-height:80vh;
 }
 
 .navbar{
+    position:sticky;
+    top:10px;
+    left: 0;
     display: flex;
     justify-content: space-between;
     width: 95%;
     margin:20px auto;
+    z-index: 1;
 }
 
 .page-title{
@@ -255,6 +260,12 @@
 
 .red-btn{
     background-color: rgb(176, 5, 5);
+    color: #ffff;
+    border: none;
+}
+
+.red2-btn{
+    background-color: rgba(181, 42, 42, 0.941);
     color: #ffff;
     border: none;
 }
