@@ -305,10 +305,16 @@
 
 @media screen and (max-width:700px){
     .navbar{
-        width: 100%;
+        width: 92%;
     }
     .nav-links{
         width: 100%;
+    }
+    .user-context{
+        transform: scale(0.7);
+    }
+    .side-context{
+        transform: scale(0.7);
     }
 
     .todo-container{

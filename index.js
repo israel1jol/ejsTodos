@@ -10,8 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("views", "./templates");
 app.set("view engine", "ejs");
-app.use("/styles", express.static(path.join(__dirname, "templates", "styles")))
-app.use("/js", express.static(path.join(__dirname, "templates", "js")))
+app.use("/styles", express.static(path.join(__dirname, "static", "styles")))
+app.use("/js", express.static(path.join(__dirname, "static", "js")))
 
 
 app.use("/", require("./routes/api"));
