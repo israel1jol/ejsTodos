@@ -1,0 +1,329 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container{
+    min-height:80vh;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin:20px auto;
+}
+
+
+.page-title h1{
+    font-family: Rubik Wet Paint;
+    font-size: 40px;
+}
+
+.page-title h1 a{
+    text-decoration: none;
+    color: rgba(12, 103, 2, 0.799);
+}
+
+.nav-links{
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: end;
+    align-items: center;
+}
+
+.nav-links ul li{
+    margin: 0 10px;
+}
+
+.btn1{
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 100;
+    border: 1px solid rgba(0, 0, 0, 0.113);
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.btn1:hover{
+    position: relative;
+    background-color: #555;
+    color: #fff;
+
+}
+.container .inner-content{
+    position: relative;
+    height: 70vh;
+    max-width: 500px;
+    margin: 2px auto;
+}
+
+
+.user-context{
+    position: absolute;
+    padding: 15px 25px;
+    z-index: 1;
+    min-width: 60%;
+    background-color: #ffff;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.334);
+    top: 30%;
+    left: 10%;
+    transition: all ease 1s;
+}
+
+.side-context{
+    position: absolute;
+    left: 28%;
+    top: 24%;
+    transition: all ease 1s;
+    padding: 15px 25px;
+    z-index: -1;
+    background-color: #555;
+    color: #ffff;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.334);
+    min-width: 60%;
+}
+
+.side-context h2{
+    text-align: center;
+    padding: 4px;
+    font-weight: 300;
+    font-family: sans-serif;
+}
+
+
+.login-form{
+    position: relative;
+}
+
+.user-context h2{
+    text-align: center;
+    padding: 5px;
+    font-weight: 100;
+    font-family: sans-serif;
+}
+
+.user-context div{
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.user-context label{
+    font-family: "Russo One";
+    margin-right: 10px;
+}
+
+.user-context input{
+    outline: none;
+}
+
+.user-context .submit-btn{
+    width: 60%;
+    margin:10px auto;
+    text-align: center;
+}
+
+.submit-btn input{
+    padding: 6px;
+    background-color: #111111b3;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s ease all;
+}
+
+.submit-btn input:hover{
+    color: #111111b3;
+    background-color: rgb(217, 217, 217);
+}
+
+.side-context div{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.side-context label{
+    margin-right: 10px;
+}
+
+.register-form input{
+    outline: none;
+}
+
+.reg-btn{
+    width: 60%;
+    margin:10px auto;
+    text-align: center;
+}
+.reg-btn input{
+    padding: 6px;
+    background-color: #111111b3;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s ease all;
+}
+
+.reg-btn input:hover{
+    
+    background: #cdcdcd;
+    color:#555;
+}
+
+.custom-none-btn{
+    padding: 2px;
+    cursor: pointer;
+}
+
+
+.err-box{
+    background-color: #740707;
+    color: white;
+    width: 80%;
+    margin: auto;
+    padding: 6px;
+}
+
+.err-box p{
+    font-size: 12px;
+}
+
+.todo-container{
+    margin: 40px auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-row-gap: 10px;
+
+}
+
+.todo-container form{
+    height: 20vh;
+    aspect-ratio: 1;
+    text-align: center;
+}
+
+.todo-container input{
+    height: 100%;
+    width: 100%;
+    border-radius:50% ;
+    font-family: serif;
+    box-shadow: 1px 1px 5px black;
+    transition: all ease 0.5s;
+    font-size: 13px;
+    font-weight: 900;
+    overflow-y: scroll;
+    cursor: pointer;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.todo-container input:hover{
+    transform: scale(0.8);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.455);
+}
+
+.green-btn{
+    background-color: rgb(0, 82, 0);
+    color: #ffff;
+    border: none;
+}
+
+.red-btn{
+    background-color: rgb(176, 5, 5);
+    color: #ffff;
+    border: none;
+}
+
+.modal-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(2, 35, 23, 0.79);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    color: rgb(255, 252, 252);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+#back{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.modal-box form div{
+    margin: 10px;
+    animation-name: slide;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+#cs1{
+    animation-duration: 2s;
+}
+#cs2{
+    animation-duration: 2.2s;
+}
+#cs3{
+    animation-duration: 2.4s;
+}
+#cs4{
+    animation-duration: 2.6s;
+}
+
+.modal-box form label{
+    font-size: 20px;
+}
+
+.modal-box form input{
+    outline: none;
+}
+
+@media screen and (max-width:700px){
+    .navbar{
+        width: 100%;
+    }
+    .nav-links{
+        width: 100%;
+    }
+
+    .todo-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .todo-container form{
+        margin: 20px 0px;
+        width: 50%;
+    }
+}
+
+@keyframes slide{
+    0%{transform: translateX(-100vw);}
+    100%{transform: translateX(0);}
+}

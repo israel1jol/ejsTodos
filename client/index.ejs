@@ -1,0 +1,17 @@
+<%-include("partials/t_above", {data:data})%>
+
+<div class="user-context">
+   <%if(data === "Login"){%>
+    <%-include("partials/login", {error:error})%>
+    <%} else{%>
+        <%-include("partials/register", {error:error})%>
+    <%}%>
+</div>
+<div class="side-context">
+    <%if(data === "Login"){%>
+        <%-include("partials/register", {error:error})%>
+    <%} else {%>
+        <%-include("partials/login", {error:error})%>
+    <%}%>
+</div>
+<%-include("partials/t_below")%>

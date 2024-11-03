@@ -1,0 +1,18 @@
+<form action="register" method="post" class="register-form">
+    <h2>REGISTER</h2>
+    <%if(error.active && data === "Register"){%>
+        <div class="err-box">
+            <p><%= error.message %></p>
+        </div>
+        <%}%>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+    </div>
+    <div class="reg-btn"> <input type="submit" value="Enter"></div>
+    <div><p>Already have an account? <button class="custom-none-btn" id="<%- data === "Login" ? "switch2" : "switch1"%>">Login</button></p></div>
+</form>

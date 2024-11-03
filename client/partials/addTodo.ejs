@@ -1,0 +1,21 @@
+<div class="modal-box">
+    <button id="back">Back</button>
+    <form action="/addTodo" method="post">
+        <div id="cs1">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title">
+        </div>
+        <div id="cs2">
+            <label for="descr">Description</label>
+            <input type="text" name="descr" id="descr">
+        </div>
+        <div id="cs3">
+            <label for="isComp">isComplete</label>
+            <select name="isComp" id="isComp">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div class="submit-btn" id="cs4"><input type="submit" value="Add"></div>
+    </form>
+</div>

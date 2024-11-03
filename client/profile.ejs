@@ -1,0 +1,9 @@
+<%-include("partials/t_above", {data:"Dashboard"})%>
+    <%-include("partials/addTodo")%>
+    <div class="todo-container">
+        <% todos.forEach(function(t){ %>
+        <form method="post" action="/todo/<%=t.id%>?iscomp=<%=t.isComplete%>"><input type="submit" class="<%-t.isComplete == 0 ? "red-btn" : "green-btn" %>" value="<%= t.title %>"></form>
+        <% });%>
+    </div>
+  
+<%-include("partials/t_auth_below")%>
